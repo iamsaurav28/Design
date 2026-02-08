@@ -4,7 +4,7 @@
 .home-navbar {
   display: flex;
   align-items: center;
-  height: 70px;
+  height: 60px;
   padding: 0 40px;
   background: #ffffff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -13,15 +13,23 @@
   z-index: 1000;
 }
 
-/* LOGO */
 .home-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 22px;
   font-weight: 700;
   color: #0a66c2;
-  cursor: pointer;
+  text-decoration: none;
 }
 
-/* CENTER NAV LINKS */
+.home-logo-img {
+  height: 60px;   /* Adjust logo size */
+  width: auto;
+}
+
+
+/* DESKTOP LINKS */
 .home-nav-center {
   flex: 1;
   display: flex;
@@ -29,7 +37,6 @@
   gap: 40px;
 }
 
-/* NAV LINKS */
 .home-nav-link {
   text-decoration: none;
   color: #333;
@@ -44,7 +51,6 @@
   color: #0a66c2;
 }
 
-/* UNDERLINE ANIMATION */
 .home-nav-link::after {
   content: "";
   position: absolute;
@@ -59,20 +65,132 @@
 .home-nav-link:hover::after {
   width: 100%;
 }
+/* Search container must be relative */
+.home-search-container {
+  position: relative;
+  display: inline-block; /* keep it inline with navbar items */
+  width: 250px; /* adjust width as needed */
+}
+
+/* Search input styling */
+.home-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Dropdown suggestions */
+.home-search-results {
+  position: absolute; /* absolute inside relative container */
+  top: 100%; /* directly below input */
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none; /* hidden by default */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Each suggestion */
+.home-search-results div {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.home-search-results div:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* MENU BUTTON FOR MOBILE */
+.home-menu-btn {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+/* =====================
+   SIDEBAR
+===================== */
+.home-sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: left 0.3s ease;
+  z-index: 9999;
+}
+
+.home-sidebar a {
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.home-sidebar a:hover {
+  background: #f1f3f6;
+}
+
+/* OVERLAY */
+.home-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 9998;
+}
+
+
+
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: none;
+}
+
 
 /* =====================
    RESPONSIVE NAVBAR
 ===================== */
-@media (max-width: 768px) {
-  .home-navbar {
-    padding: 0 20px;
-  }
-
+@media (max-width: 720px) {
+  /* Hide desktop links */
   .home-nav-center {
-    gap: 20px;
+    display: none;
   }
 
-  .home-nav-link {
-    font-size: 15px;
+  /* Small search bar */
+  .home-search {
+    max-width: 160px;
+    margin: 0 auto;
+  }
+
+  /* Show menu button */
+  .home-menu-btn {
+    display: block;
   }
 }

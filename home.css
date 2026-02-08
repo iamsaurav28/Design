@@ -1,12 +1,13 @@
 /* =====================
    HEADER IMAGE
 ===================== */
-.home-header img {
+.home-header video {
   width: 100%;
-  height: 300px;
+  height: 550px;
   object-fit: cover;
   display: block;
 }
+
 
 /* =====================
    PRODUCTS SECTION
@@ -21,7 +22,7 @@
 ===================== */
 .home-product-image {
   width: 100%;
-  height: 180px;
+  height: 280px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 15px;
@@ -71,6 +72,52 @@
   font-weight: bold;
   color: #0a66c2;
 }
+
+
+.home-product-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.home-btn {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.home-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* BUY NOW BUTTON */
+.buy-now {
+  background: #0a66c2;
+  color: #fff;
+}
+
+.buy-now:hover {
+  background: #084d96;
+}
+
+/* ADD TO CART BUTTON */
+.add-cart {
+  background: #f1f3f6;
+  color: #0a66c2;
+  border: 1px solid #0a66c2;
+}
+
+.add-cart:hover {
+  background: #0a66c2;
+  color: #fff;
+}
+
 
 /* =====================
    RESPONSIVE

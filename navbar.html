@@ -1,10 +1,48 @@
 <nav class="home-navbar">
-  <div class="home-logo">YourLogo</div>
+  <!-- LOGO -->
+  <a href="/index.html" class="home-logo">
+  <img src="/images/rangilo.webp" alt="Rangilo Logo" class="home-logo-img" />
 
-  <div class="home-nav-center">
+</a>
+
+
+  <!-- SEARCH BAR -->
+  <div class="home-search home-search-small">
+    <input
+      type="text"
+      placeholder="Search..."
+      class="home-search-input"
+      id="homeSearchInput"
+    />
+  </div>
+
+  <!-- MENU BUTTON (mobile) -->
+  <div class="home-menu-btn" onclick="toggleSidebar()">☰</div>
+
+  <!-- DESKTOP LINKS -->
+  <div class="home-nav-center home-desktop-links">
     <a href="index.html" class="home-nav-link">Home</a>
     <a href="products.html" class="home-nav-link">Products</a>
     <a href="design.html" class="home-nav-link">Design</a>
-    <a href="contact.html" class="home-nav-link">Contact</a>
+    <a href="orders.html" class="home-nav-link">My Orders</a>
+<a href="cart.html" class="home-nav-link cart-link">
+  My Cart
+  <span id="cartCountBadge" class="cart-badge">0</span>
+</a>
+
+    <a href="contact.html" class="home-nav-link">Contact Us</a>
   </div>
 </nav>
+
+<!-- SIDEBAR -->
+<div class="home-sidebar" id="homeSidebar">
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="design.html">Design</a>
+  <a href="orders.html">My Orders</a>
+  <a href="cart.html">My Cart</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- SIDEBAR OVERLAY -->
+<div class="home-sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>

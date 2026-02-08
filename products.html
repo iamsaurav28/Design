@@ -1,0 +1,38 @@
+<div class="home-product-grid" id="productsGrid">
+  <!-- JS will fill cards here -->
+</div>
+
+<script src="/javascript/products.js"></script>
+<script>
+  const productsGrid = document.getElementById("productsGrid");
+
+  // Get search query from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get("search")?.toLowerCase() || "";
+
+  // Filter products that match the query
+  const filteredProducts = searchQuery
+    ? products.filter(p => p.name.toLowerCase().includes(searchQuery))
+    : products;
+
+  // Function to generate product card
+  function generateProductCard(product) {
+    return `
+      <div class="home-product-card">
+        <img src="${product.image}" alt="${product.name}" class="home-product-image" />
+        <h3 class="home-product-name">${product.name}</h3>
+        <div class="home-product-rating">${product.rating}</div>
+        <div class="home-product-price">${product.price}</div>
+        <div class="home-product-buttons">
+          <button class="home-btn buy-now" onclick="buyNowWhatsApp('${product.name}','${product.price}','${product.image}')">
+            Buy Now
+          </button>
+          <button class="home-btn add-cart">Add to Cart</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // Render filtered products
+  productsGrid.innerHTML = filteredProducts.map(generateProductCard).join("");
+</script>
